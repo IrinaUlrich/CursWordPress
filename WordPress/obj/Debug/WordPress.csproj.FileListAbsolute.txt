@@ -1,0 +1,6 @@
+c:\users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\bin\Debug\WordPress.exe.config
+C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\bin\Debug\WordPress.exe
+C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\bin\Debug\WordPress.pdb
+C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\obj\Debug\WordPress.csprojResolveAssemblyReference.cache
+C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\obj\Debug\WordPress.exe
+C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\obj\Debug\WordPress.pdb
