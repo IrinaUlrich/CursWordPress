@@ -119,8 +119,54 @@ namespace WordPress
             return content.Split(' ').Length;
 
         }
+        //Sorting
+
+        //     public static List<WordPressPage> SortArticles(List<WordPressPage> myList)
+        //     {
+        //
+        //         var lastList = new List<WordPressPage>();
+        //
+        //           while (myList.Count!=0)
+        //             {
+        //
+        //             var min = myList[0];
+        //             for (int i = 0; i < myList.Count; i++)
+        //             {
+        //                 if (min.id > myList[i].id)
+        //                 {
+        //                     min = myList[i];
+        //                 }
+        //             }
+        //             myList.Remove(min);
+        //             lastList.Add(min);
+        //         }
+        //
+        //         return lastList;
+        //
+        //     }    
 
 
+        public static List<WordPressPage> SortByTitle(List<WordPressPage> pageList)
+        {
+            var orderedList = new List<WordPressPage>();
 
+            while (pageList.Count > 0)
+            {
+                var selected = pageList[0];
+
+                for (int i = 1; i < pageList.Count; i++)
+                {
+                    if (selected.title.CompareTo(pageList[i].title) > 0)
+                    {
+                        selected = pageList[i];
+                    }
+                }
+                pageList.Remove(selected);
+                orderedList.Add(selected);
+            }
+
+
+            return orderedList;
+        }
     }
 }
