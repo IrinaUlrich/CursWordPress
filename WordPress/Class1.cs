@@ -34,7 +34,7 @@ namespace WordPress
         private Boolean isVisible = true;
         private DateTime publishDate = DateTime.Now;
         private int parent;
-        private int order = 7655;
+        private int order = 332;
         private int viewCount = 87777676;
 
 

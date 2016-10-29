@@ -4,3 +4,9 @@ C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\bin\De
 C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\obj\Debug\WordPress.csprojResolveAssemblyReference.cache
 C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\obj\Debug\WordPress.exe
 C:\Users\irinau\documents\visual studio 2015\Projects\WordPress\WordPress\obj\Debug\WordPress.pdb
+C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\bin\Debug\WordPress.exe.config
+C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\obj\Debug\WordPress.exe
+C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\obj\Debug\WordPress.pdb
+C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\bin\Debug\WordPress.exe
+C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\bin\Debug\WordPress.pdb
+C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\obj\Debug\WordPress.csprojResolveAssemblyReference.cache
