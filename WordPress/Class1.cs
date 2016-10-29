@@ -12,9 +12,9 @@ namespace WordPress
         public static List<WordPressPage> pendingReview = new List<WordPressPage>();
 
         private int id;
-        public string title = "Titlu frumos";
+        public string title = "Titlu frumos va fi frumos";
         private string content = "Girls are strong and independent";
-        
+
 
 
         enum Status
@@ -25,7 +25,7 @@ namespace WordPress
         }
 
         private Status _status;
-        private Status pageStatus 
+        private Status pageStatus
         {
             get { return _status; }
             set { _status = value; }
@@ -117,10 +117,10 @@ namespace WordPress
         public int getWordCount()
         {
             return content.Split(' ').Length;
-            
+
         }
 
-    
+
 
     }
 }

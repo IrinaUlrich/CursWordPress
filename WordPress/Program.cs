@@ -22,9 +22,9 @@ namespace WordPress
             //           Console.WriteLine(page3);
             page2.statusPendingReview();
             page3.statusPendingReview();
-//            Console.WriteLine(page3);
-//           foreach (WordPressPage p in WordPressPage.pendingReview)
-//              System.Console.WriteLine(p);
+            //            Console.WriteLine(page3);
+            //           foreach (WordPressPage p in WordPressPage.pendingReview)
+            //              System.Console.WriteLine(p);
 
             page2.publish(2);
             //          Console.WriteLine(page2);
@@ -54,10 +54,10 @@ namespace WordPress
             }
             catch (Exception e)
             {
-                    
-               Console.WriteLine(e.Message);
+
+                Console.WriteLine(e.Message);
             }
-      //      page4.publish();
+            //      page4.publish();
 
             Console.WriteLine(page4);
             Console.Read();
