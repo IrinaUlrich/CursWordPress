@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WordPress
 {
-    interface IPublish
+   public interface IPublish
     {
         bool isPublished { get; }
 
