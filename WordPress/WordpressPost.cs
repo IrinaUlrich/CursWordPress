@@ -11,6 +11,7 @@ namespace WordPress
     {
         public List<string> tags;
         public List<string> categories;
+        string featuredImage;
 
         enum Format
         {
@@ -23,7 +24,13 @@ namespace WordPress
         }
         Format format;
 
-        string featuredImage; 
+        public static int postCount=0;
+
+        public WordPressPost() : base()
+        {
+            postCount++;
+            id = postCount;
+        }
 
     }
 }
