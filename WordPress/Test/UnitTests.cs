@@ -12,7 +12,7 @@ namespace WordPress.Test
     [TestFixture]
 
     public class UnitTests
-    {
+    { 
         [Test]
         public void TestSort()
         {
@@ -57,6 +57,16 @@ namespace WordPress.Test
 
         }
 
-    
+        [Test]
+        public void isPublished()
+        {
+            IPublish page = new WordPressPage();
+
+            page.unpublish();
+
+            Assert.False(page.isPublished);
+        }
+
+
     }
 }
