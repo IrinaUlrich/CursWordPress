@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace WordPress
 {
-    public class WordPressPage
+    public class WordPressPage : IPublish
     {
         public static int pageCount = 0;
         public static List<WordPressPage> pendingReview = new List<WordPressPage>();
 
-        private int id;
+        public int id;
         public string title = "Titlu frumos va fi frumos";
         private string content = "Girls are strong and independent";
 
@@ -81,7 +81,7 @@ namespace WordPress
         {
             if (this.isPublished)
             {
-                Console.WriteLine("from puvlish");
+                Console.WriteLine("from publish");
                 throw new SystemException("Pagina a fost deja publicata");
 
             }
@@ -89,6 +89,7 @@ namespace WordPress
             publishDate = DateTime.Now;
         }
 
+     
         public void statusPendingReview()
         {
             pageStatus = Status.PendingReview;
@@ -185,6 +186,10 @@ namespace WordPress
             return orderedList;
         }
 
+        public void unpublish()
+        {
+            this._status = Status.PendingReview; 
+        }
 
     }
 }

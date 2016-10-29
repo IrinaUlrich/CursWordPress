@@ -9,6 +9,9 @@ namespace WordPress
 {
     public class WordPressPost : WordPressPage
     {
+
+        public static int postCount = 0;
+
         public List<string> tag;
         public List<string> category;
 
@@ -24,5 +27,11 @@ namespace WordPress
 
         public Format _format;
         public string shortLink;
+
+        public WordPressPost() : base()
+        {
+            postCount++;
+            id = postCount;
+        }
     }
 }

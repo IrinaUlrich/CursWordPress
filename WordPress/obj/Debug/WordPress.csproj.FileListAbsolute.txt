@@ -10,3 +10,5 @@ C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\o
 C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\bin\Debug\WordPress.exe
 C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\bin\Debug\WordPress.pdb
 C:\Users\sandraa\Documents\Visual Studio 2015\Projects\CursWordPress\WordPress\obj\Debug\WordPress.csprojResolveAssemblyReference.cache
+C:\Users\irinau\Documents\Visual Studio 2015\Projects\WordPress\WordPress\bin\Debug\nunit.framework.dll
+C:\Users\irinau\Documents\Visual Studio 2015\Projects\WordPress\WordPress\bin\Debug\nunit.framework.xml

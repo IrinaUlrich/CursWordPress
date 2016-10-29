@@ -41,5 +41,22 @@ namespace WordPress.Test
             Assert.AreEqual(nameList[2], pageTest3);
 
         }
+
+        [Test]
+        public void UniqueID()
+        {
+            WordPressPage page = new WordPressPage();
+            WordPressPost post = new WordPressPost();
+            WordPressPost post2 = new WordPressPost();
+
+
+            Assert.AreEqual(page.id, 1);
+            Assert.AreEqual(post.id, 1);
+            Assert.AreEqual(post2.id, 2);
+
+
+        }
+
+    
     }
 }
