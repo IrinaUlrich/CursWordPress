@@ -62,8 +62,6 @@ namespace WordPress
             Console.WriteLine(page4);
             Console.Read();
 
-
-
         }
 
     }

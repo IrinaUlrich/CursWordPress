@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WordPress
 {
-    public class WordPressPage
+    public class WordPressPage : IPublish
     {
         public static int pageCount = 0;
         public static List<WordPressPage> pendingReview = new List<WordPressPage>();
 
-        private int id;
+        public int id;
         public string title = "Titlu frumos va fi frumos";
         private string content = "Girls are strong and independent";
 
@@ -32,6 +33,8 @@ namespace WordPress
         }
 
         private Boolean isVisible = true;
+        public WordPressVisibility visibility;
+
         private DateTime publishDate = DateTime.Now;
         private int parent;
         private int order = 332;
@@ -39,8 +42,10 @@ namespace WordPress
 
 
 
+
         public WordPressPage()
         {
+            visibility = new PublicVisibility();
             pageCount++;
             id = pageCount;
         }
@@ -79,7 +84,7 @@ namespace WordPress
         {
             if (this.isPublished)
             {
-                Console.WriteLine("from puvlish");
+                Console.WriteLine("from publish");
                 throw new SystemException("Pagina a fost deja publicata");
 
             }
@@ -87,6 +92,7 @@ namespace WordPress
             publishDate = DateTime.Now;
         }
 
+     
         public void statusPendingReview()
         {
             pageStatus = Status.PendingReview;
@@ -119,8 +125,74 @@ namespace WordPress
             return content.Split(' ').Length;
 
         }
+        // sorting started
+
+        //      public override string ToString()
+        //      {
+        //
+        //          return id.ToString() + "\n" + title + "\n" + content + "\nstatus: " + pageStatus + "\nvisible: " + isVisible + " " + publishDate + " " + parent + " " + order + " " + viewCount;
+        //
+        //      }
+
+        public static List<WordPressPage> SortByTitle(List<WordPressPage> pageList)
+        {
+            var orderedList = new List<WordPressPage>();
+         //   int indice = 0;
+        //    int countList = nameList.Count;
+        //    WordPressPage aux;
 
 
+            //ordonare dupa id
+       //     while (pageList.Count != 0)
+       //     {
+       //
+       //         var min = pageList[0];
+       //         for (int i = 0; i < pageList.Count; i++)
+       //         {
+       //             if (min.id > pageList[i].id)
+       //             {
+       //                 min = pageList[i];
+       //             }
+       //         }
+       //         pageList.Remove(min);
+       //         orderedList.Add(min);
+       //     }
+
+            while (pageList.Count > 0)
+            {
+                var selected = pageList[0];
+
+                for (int i = 1; i < pageList.Count; i++)
+                {
+                    if (selected.title.CompareTo(pageList[i].title)>0)
+                    {
+                        selected = pageList[i];
+                    }
+                }
+                pageList.Remove(selected);
+                orderedList.Add(selected);
+            }
+
+       //     while (nameList.Count != 0)
+       //     {
+       //         var min = nameList[0];
+       //         nameList.Remove(nameList[0]);
+       //         foreach (var page in nameList)
+       //         {
+       //             if ()
+       //             {
+       //                 
+       //             }
+       //         }
+       //     }
+
+            return orderedList;
+        }
+
+        public void unpublish()
+        {
+            this._status = Status.PendingReview; 
+        }
 
     }
 }
