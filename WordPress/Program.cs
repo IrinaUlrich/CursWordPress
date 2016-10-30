@@ -17,6 +17,8 @@ namespace WordPress
             //           Console.WriteLine(page2);
             //           Console.WriteLine(page3);
             page3.title = "NewTitlu";
+
+            // page1.visibility = new PasswordVisibility();
             //          Console.WriteLine(page3);
             page3.publish();
             //           Console.WriteLine(page3);

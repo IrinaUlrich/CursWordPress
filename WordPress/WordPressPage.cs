@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using WordPress.Test;
 
 namespace WordPress
 {
-    public class WordPressPage
+    public class WordPressPage : IPublish
+
+
     {
-        public static int pageCount = 0;
+        public static int pageCount =0;
         public static List<WordPressPage> pendingReview = new List<WordPressPage>();
 
-        private int id;
+        public int id;
         public string title = "Titlu frumos va fi frumos";
         private string content = "Girls are strong and independent";
 
@@ -31,19 +34,21 @@ namespace WordPress
             set { _status = value; }
         }
 
-        private Boolean isVisible = true;
+        private bool isVisible;
+        public WordPressVisibility visibility;
         private DateTime publishDate = DateTime.Now;
         private int parent;
         private int order = 332;
         private int viewCount = 87777676;
 
 
-
         public WordPressPage()
         {
+            visibility = new PublicVisibility();
             pageCount++;
             id = pageCount;
         }
+
 
         public WordPressPage(string title, string content)
         {
@@ -79,7 +84,7 @@ namespace WordPress
         {
             if (this.isPublished)
             {
-                Console.WriteLine("from puvlish");
+                Console.WriteLine("from publish");
                 throw new SystemException("Pagina a fost deja publicata");
 
             }
@@ -119,8 +124,59 @@ namespace WordPress
             return content.Split(' ').Length;
 
         }
+        //Sorting
+
+        //     public static List<WordPressPage> SortArticles(List<WordPressPage> myList)
+        //     {
+        //
+        //         var lastList = new List<WordPressPage>();
+        //
+        //           while (myList.Count!=0)
+        //             {
+        //
+        //             var min = myList[0];
+        //             for (int i = 0; i < myList.Count; i++)
+        //             {
+        //                 if (min.id > myList[i].id)
+        //                 {
+        //                     min = myList[i];
+        //                 }
+        //             }
+        //             myList.Remove(min);
+        //             lastList.Add(min);
+        //         }
+        //
+        //         return lastList;
+        //
+        //     }    
 
 
+        public static List<WordPressPage> SortByTitle(List<WordPressPage> pageList)
+        {
+            var orderedList = new List<WordPressPage>();
 
+            while (pageList.Count > 0)
+            {
+                var selected = pageList[0];
+
+                for (int i = 1; i < pageList.Count; i++)
+                {
+                    if (selected.title.CompareTo(pageList[i].title) > 0)
+                    {
+                        selected = pageList[i];
+                    }
+                }
+                pageList.Remove(selected);
+                orderedList.Add(selected);
+            }
+
+
+            return orderedList;
+        }
+
+        public void unpublish()
+        {
+            pageStatus = Status.Draft;
+        }
     }
 }
