@@ -33,6 +33,8 @@ namespace WordPress
         }
 
         private Boolean isVisible = true;
+        public WordPressVisibility visibility;
+
         private DateTime publishDate = DateTime.Now;
         private int parent;
         private int order = 332;
@@ -43,6 +45,7 @@ namespace WordPress
 
         public WordPressPage()
         {
+            visibility = new PublicVisibility();
             pageCount++;
             id = pageCount;
         }

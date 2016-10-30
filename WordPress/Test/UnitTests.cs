@@ -57,16 +57,55 @@ namespace WordPress.Test
 
         }
 
-        [Test]
-        public void isPublished()
+
+        public void testPublish(IPublish element)
         {
-            IPublish page = new WordPressPage();
+            element.unpublish();
 
-            page.unpublish();
-
-            Assert.False(page.isPublished);
+            Assert.False(element.isPublished);
         }
 
+
+        [Test]
+        public void pageIsNotPublished()
+        {
+            IPublish page = new WordPressPage();
+            testPublish(page);
+        }
+
+        [Test]
+        public void commentIsNotPublished()
+        {
+            IPublish comm = new WordPressComment();
+            testPublish(comm);
+        }
+
+
+        [Test]
+        public void isPublic()
+        {
+            PublicVisibility visible= new PublicVisibility();
+
+            Assert.IsTrue(visible.isInFeed() || visible.canBeSearched());
+        }
+
+        [Test]
+        public void isPrivate()
+        {
+            PrivateVisibility visible = new PrivateVisibility();
+
+            Assert.IsFalse(visible.isInFeed() || visible.canBeSearched());
+        }
+
+        [Test]
+        public void isPassword()
+        {
+            PasswordVisibility pass = new PasswordVisibility();
+            pass.password = "goodPass";
+
+            Assert.IsTrue(pass.canView("goodPass"));
+            Assert.IsFalse(pass.canView("badPass"));
+        }
 
     }
 }
