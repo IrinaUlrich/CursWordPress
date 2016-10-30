@@ -11,7 +11,7 @@ namespace WordPress.Test
     [TestFixture]
     public class test
     {
-        [Test]
+        //    [Test]
         public void TestSort()
         {
             var myList = new List<WordPressPage>();
@@ -45,9 +45,79 @@ namespace WordPress.Test
 
 
             Assert.AreEqual(results, myList2);
+        }
 
 
+        [Test]
+
+        public void Testid()
+        {
+
+            WordPressPage page = new WordPressPage();
+            WordPressPost post1 = new WordPressPost();
+            WordPressPost post2 = new WordPressPost();
+
+
+            Assert.AreEqual(page.id, 1);
+            Assert.AreEqual(post1.id, 1);
+            Assert.AreEqual(post2.id, 2);
+
+        
+    }
+
+        public void testPublish(IPublish element)
+        {
+            element.publish();
+            Assert.IsFalse(element.isPublished);
+        }
+
+        [Test]
+        public void publishTest()
+            {
+//          IPublish stat = new WordPressPage();
+//          stat.unpublish();
+//
+//          Assert.False(stat.isPublished);
+//          WordPressPage pagestatus = new WordPressPage();
+            testPublish((IPublish)new WordPressPage());
+        }
+        [Test]
+        public void publishTest2()
+        {
+ //           IPublish comm = new WordPressComment();
+ //           comm.publish();
+ //
+ //           Assert.IsTrue(comm.isPublished);
+            testPublish((IPublish)new WordPressComment());
+        }
+
+        [Test]
+
+        public void isPublic()
+        {
+            PublicVisibility visible = new PublicVisibility();
+
+            Assert.IsTrue(visible.isInFeed());
+            Assert.IsTrue(visible.canBeSearched());
 
         }
+
+        [Test]
+        public void isPrivate()
+        {
+            PrivateVisibility notvisible = new PrivateVisibility();
+
+            Assert.IsFalse(notvisible.isInFeed());
+            Assert.IsFalse(notvisible.canBeSearched());
+        }
+        [Test]
+        public void Password()
+        {
+            PasswordVisibility password = new PasswordVisibility();
+
+            Assert.IsTrue(password.canView("parolabuna"));
+            Assert.IsFalse(password.canView("parolarea"));
+        }
+        }
     }
-}
+
